@@ -23,6 +23,7 @@ void Array_Init(int* arr, int n, int del);
 void Array_Print(int *arr, int n);
 void Quick_sort(int* arr, int left, int delta); 
 void Bubble_Sort(int* arr, int n);
+void check();
 
 int main()
 {
