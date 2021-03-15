@@ -7,8 +7,8 @@
 #include <ctime>
 #include<chrono>
 
-#define DIV 1048576
-#define WIDTH 7
+const int DIV = 1048576;
+const int WIDTH = 7;
 
 typedef DWORDLONG dg;
 
@@ -23,7 +23,6 @@ void Array_Init(int* arr, int n, int del);
 void Array_Print(int *arr, int n);
 void Quick_sort(int* arr, int left, int delta); 
 void Bubble_Sort(int* arr, int n);
-int Summa(int* arr, int n);
 int main()
 {
     srand(static_cast<unsigned int>(time(0)));
@@ -35,6 +34,7 @@ int main()
     perem = static_cast<dg>(n); 
     x = Mem_info();
     check=Memory_Check(x, perem);
+    cout << check;
     if (check == 1) {
         arr1 = (int*) malloc(n * sizeof(int));
 
@@ -78,10 +78,7 @@ int main()
         auto duration = duration_cast<microseconds>(stop - start);
         cout << "Time spent: " << duration.count() << " microseconds" << endl;
         cout << "New array: " << endl;
-        
         Array_Print(arr2, delta);
-        cout << endl;
-        cout << "Summ of this array" << Summa(arr2, delta);
         free(arr2);
     }
     else {
@@ -174,12 +171,6 @@ void Quick_sort(int* arr, int left, int right) {
         Quick_sort(arr, lborder, right);
     }
 }
-int Summa(int* arr, int n) {
-    int sum = 0;
-    for (int i = 0; i < n; ++i) {
-        sum += arr[i];
-    }
-    return sum;
-}
+
 
 
